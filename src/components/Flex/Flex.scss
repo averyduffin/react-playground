@@ -1,0 +1,41 @@
+.flex {
+  display: flex;
+}
+
+.flex-inline {
+  display: inline-flex;
+}
+
+$flexDirection: inline, row, row-reverse, column, column-reverse;
+$flexWrap: wrap, nowrap, wrap-reverse;
+$justifyContent: flex-start, flex-end, center, space-between, space-around, space-evenly, start, end, left, right;
+$alignItems: stretch, flex-start, flex-end, center, baseline, start, end, self-start, self-end;
+$alignContent: flex-start, flex-end, center, space-between, space-around, space-evenly, stretch, start, end, baseline;
+
+@mixin classModifier($attribute: '', $list: $flexDirection) {
+  @each $value in $list {
+    &-#{$value} {
+      #{$attribute}: $value;
+    }
+  }
+}
+
+.flex-direction {
+  @include classModifier($attribute: 'flex-direction', $list: $flexDirection)
+}
+
+.flex-wrap {
+  @include classModifier($attribute: 'flex-wrap', $list: $flexWrap)
+}
+
+.justify-content {
+  @include classModifier($attribute: 'justify-content', $list: $justifyContent)
+}
+
+.align-items {
+  @include classModifier($attribute: 'align-items', $list: $alignItems)
+}
+
+.align-content {
+  @include classModifier($attribute: 'align-content', $list: $alignContent)
+}

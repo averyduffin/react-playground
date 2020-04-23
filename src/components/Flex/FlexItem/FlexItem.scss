@@ -1,0 +1,33 @@
+@mixin numbers($attribute: 'order', $maxNumber: 100) {
+  @for $i from 1 through $maxNumber {
+    &-#{$i} {
+      #{$attribute}: $i;
+    }
+  }
+}
+
+$alignSelf: auto, flex-start, flex-end, center, baseline, stretch;
+
+@mixin classModifier($attribute: '', $list: $flexDirection) {
+  @each $value in $list {
+    &-#{$value} {
+      #{$attribute}: $value;
+    }
+  }
+}
+
+.order {
+  @include numbers()
+}
+
+.flex-grow {
+  @include numbers($attribute: 'flex-grow', $maxNumber: 5)
+}
+
+.flex-shrink {
+  @include numbers($attribute: 'flex-shrink', $maxNumber: 5)
+}
+
+.align-self {
+  @include classModifier($attribute: 'align-self', $list: $alignSelf)
+}
