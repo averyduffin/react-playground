@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Flex from './components/Flex'
 import Box from './components/Box';
+import { Header } from 'component-library';
 
 const itemHeight = {
   // height: '40px'
@@ -15,6 +16,7 @@ const boxHeight = {
 function App() {
   return (
     <div className="App">
+      <Header>TEST</Header>
       <Flex direction='column' style={boxHeight} justifyContent='space-between' alignItems='stretch'>
         <Flex.Item style={itemHeight}>
           <Box color='purple'>Box 1</Box>
